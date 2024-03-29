@@ -5,15 +5,25 @@
 #include "list.h"
 
 
+
+
+
 struct element * createlist (int val) {
     struct element *newlist = malloc(sizeof(struct element));
     newlist -> value = val;
     newlist -> pointer = NULL;
     return newlist;
+
+
+
+    
 }
 
 bool listisempty (struct element *list) {
     return list == NULL;
+
+
+    
 }
 
 int lenlist (struct element *list) {
@@ -22,7 +32,13 @@ int lenlist (struct element *list) {
         list = list -> pointer;
         len += 1;
     }
+
+
+    
     return len;
+
+
+    
 }
 
 void printlist(struct element *list) {
@@ -31,8 +47,12 @@ void printlist(struct element *list) {
         printf("%d\n", list -> value);
         list = list -> pointer;
     }
+
+    
     printf("--- END ---\n");
 }
+
+
 
 void debuglist(struct element *list) {
     int i = 0;
@@ -45,9 +65,15 @@ void debuglist(struct element *list) {
         if (!(list -> pointer == NULL)) {
             printf("Pointing on : %d\n", list -> pointer -> value);
         }
+
+
+        
         i += 1;
         list = list -> pointer;
     }
+
+
+    
 }
 
 struct element * indexlist(struct element *list, int idx) {
@@ -55,8 +81,14 @@ struct element * indexlist(struct element *list, int idx) {
     for (int i = 0; i < idx; i++) {
         list = list -> pointer;
     }
+
+
+    
     return list;
 }
+
+
+
 
 void prependlist(struct element *list, int val) {
     struct element *newlist = malloc(sizeof(struct element));
@@ -74,6 +106,10 @@ void appendlist(struct element *list, int val) {
     indexlist(list, lenlist(list) - 1) -> pointer = newlist;
 }
 
+
+
+
+
 void deletefirst(struct element *list) {
     int tmpvalue = indexlist(list, 1) -> value;
     struct element *tmpptr = indexlist(list, 1) -> pointer;
@@ -82,6 +118,10 @@ void deletefirst(struct element *list) {
     list -> pointer = tmpptr;
 }
 
+
+
+
+
 void deletelast(struct element *list) {
     int len = lenlist(list);
     struct element *tmpptr = indexlist(list, len - 1);
@@ -89,34 +129,62 @@ void deletelast(struct element *list) {
     free(tmpptr);
 }
 
+
+
+
 void addelement(struct element *list, int idx, int val) {
     if (idx == 0) {
         prependlist(list, val);
     }
+
+
+
+        
     else if (idx > 0 && idx < (lenlist(list) - 1)) {
         struct element *newelement = malloc(sizeof(struct element));
         newelement -> value = val;
         newelement -> pointer = indexlist(list, idx);
         indexlist(list, idx - 1) -> pointer = newelement;
     }
+
+
+
+        
     else if (idx == (lenlist(list) - 1)) {
         appendlist(list, val);
     }
+
+
+
+        
     else {
         assert(1 != 1);
     }
+
+
+
+    
 }
+
+
+
 
 void removeelement(struct element *list, int idx) {
     if (idx == 0) {
         deletefirst(list);
     }
+
+
+        
     else if (idx > 0 && idx < (lenlist(list) - 1)) {
         struct element *tmpptr = indexlist(list, idx - 1);
         struct element *tmpptr2 = tmpptr -> pointer;
         tmpptr -> pointer = tmpptr2 -> pointer;
         free(tmpptr2);
     }
+
+
+        
     else if (idx == (lenlist(list) - 1)) {
         deletelast(list);
     }
