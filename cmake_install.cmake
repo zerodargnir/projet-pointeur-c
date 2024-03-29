@@ -1,4 +1,4 @@
-# Install script for directory: /home/ssor/cdev/listechainee
+# Install script for directory: /home/zero/cdev/listechainee
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
