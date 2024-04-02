@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/ssor/cdev/listechainee/CMakeFiles/3.25.1/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/zero/cdev/listechainee/CMakeFiles/3.25.1/CompilerIdC/a.out"
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/ssor/cdev/listechainee/CMakeFiles/CMakeScratch/TryCompile-wGsPfi
